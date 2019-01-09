@@ -27,9 +27,9 @@
   "headline":
     "Numbers",
   "datePublished":
-    "2019-01-09T19:35:21+00:00",
+    "2019-01-09T20:59:20+00:00",
   "dateModified":
-    "2019-01-09T19:35:21+00:00",
+    "2019-01-09T20:59:20+00:00",
   "description":
     "Computers are designed to perform numerical calculations, but there are some important details about working with numbers that every programmer working with ...",
   "author": {
@@ -481,7 +481,7 @@ function updateInteractLink() {
       } else {
         // If interact button isn't binderhub, assume it's jupyterhub
         // If JupyterHub links, we only need to replace the hub url
-        href = href.replace("https://blahblah.blah.edu", hubUrl);
+        href = href.replace("", hubUrl);
         if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
           // Assume we're working from a local Jupyter server and remove `/hub`
           href = href.replace("/hub/user-redirect", "");
@@ -1284,8 +1284,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
 
-<a href="https://blahblah.blah.edu/hub/user-redirect/git-pull?repo=https://github.com//choldgraf/jupyter-book&amp;branch=master&amp;subPath=content%2F04%2F1%2FNumbers.ipynb&amp;app=notebook"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/jupyter-book/assets/images/logo_jupyterhub.svg" alt="Interact" />Interact</button></a>
-
+<a href="https://mybinder.org/v2/gh/choldgraf/jupyter-book/master?filepath=content%2F04%2F1%2FNumbers.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/jupyter-book/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
 
 
 </div>
