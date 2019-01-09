@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Randomization</title>
-  <meta name="description" content="This is an example book built with Jupyter Books.">
+  <title>Hiding code blocks or entire cells</title>
+  <meta name="description" content="Hiding code blocks or entire cells">
 
-  <link rel="canonical" href="https://predictablynoisy.com/jupyter-book/content/02/4/randomization.html">
+  <link rel="canonical" href="https://predictablynoisy.com/jupyter-book/features/hiding.html">
   <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://predictablynoisy.com/jupyter-book/feed.xml">
 
-  <meta property="og:url"         content="https://predictablynoisy.com/jupyter-book/content/02/4/randomization.html" />
+  <meta property="og:url"         content="https://predictablynoisy.com/jupyter-book/features/hiding.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Randomization" />
-<meta property="og:description" content="This is an example book built with Jupyter Books." />
+<meta property="og:title"       content="Hiding code blocks or entire cells" />
+<meta property="og:description" content="Hiding code blocks or entire cells" />
 <meta property="og:image"       content="" />
 
 
@@ -23,15 +23,15 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://predictablynoisy.com/jupyter-book/content/02/4/randomization.html",
+    "https://predictablynoisy.com/jupyter-book/features/hiding.html",
   "headline":
-    "Randomization",
+    "Hiding code blocks or entire cells",
   "datePublished":
     "2019-01-09T19:29:34+00:00",
   "dateModified":
     "2019-01-09T19:29:34+00:00",
   "description":
-    "This is an example book built with Jupyter Books.",
+    "Hiding code blocks or entire cells",
   "author": {
     "@type": "Person",
     "name": "The Jupyter Book Community"
@@ -731,7 +731,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/jupyter-book/features/hiding"
                 >
                   
@@ -935,7 +935,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
           
 
-          <ul class="c-sidebar__sections ">
+          <ul class="c-sidebar__sections u-hidden-visually">
             
               
               
@@ -998,7 +998,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/jupyter-book/02/4/randomization"
                 >
                   
@@ -1251,7 +1251,8 @@ document.addEventListener('turbolinks:load', updateInteractLink)
     <nav class="onthispage">
       <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
       <ul class="toc__menu">
-  <li><a href="#randomization">Randomization</a></li>
+  <li><a href="#hiding-code-cells-and-displaying-a-button-to-show-them">Hiding code cells and displaying a button to show them</a></li>
+  <li><a href="#hiding-the-inputs-and-outputs-of-a-cell">Hiding the inputs and outputs of a cell</a></li>
 </ul>
     </nav>
   </aside>
@@ -1274,60 +1275,98 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 </div>
 
             
+<div class="buttons">
+<button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+
+
+
+
+
+
+
+<a href="https://blahblah.blah.edu/hub/user-redirect/git-pull?repo=https://github.com//choldgraf/jupyter-book&amp;branch=master&amp;subPath=content%2Ffeatures%2Fhiding.ipynb&amp;app=notebook"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/jupyter-book/assets/images/logo_jupyterhub.svg" alt="Interact" />Interact</button></a>
+
+
+
+</div>
+
 
             <div class="c-textbook__content">
-              <h2 id="randomization">Randomization</h2>
+              <h1 id="hiding-code-blocks-or-entire-cells">Hiding code blocks or entire cells</h1>
 
-<p>An excellent way to avoid confounding is to assign individuals to the treatment
-and control groups <em>at random</em>, and then administer the treatment to those who
-were assigned to the treatment group. Randomization keeps the two groups similar
-apart from the treatment.</p>
+<p>It’s possible to control which cells show up in your final book pages. For example,
+you may want to display a complex visualization to illustrate an idea, but don’t
+want the page to be cluttered with a large code cell that generated the viz. In other
+cases, you may want to remove a code cell entirely.</p>
 
-<p>If you are able to randomize individuals into the treatment and control groups,
-you are running a <em>randomized controlled experiment</em>, also known as a
-<em>randomized controlled trial</em> (RCT). Sometimes, people’s responses in an
-experiment are influenced by their knowing which group they are in. So you might
-want to run a <em>blind</em> experiment in which individuals do not know whether they
-are in the treatment group or the control group. To make this work, you will
-have to give the control group a <em>placebo</em>, which is something that looks
-exactly like the treatment but in fact has no effect.</p>
+<p>This page explains how to accomplish this with Jupyter Book.</p>
 
-<p>Randomized controlled experiments have long been a gold standard in the medical
-field, for example in establishing whether a new drug works. They are also
-becoming more commonly used in other fields such as economics.</p>
+<h2 id="hiding-code-cells-and-displaying-a-button-to-show-them">Hiding code cells and displaying a button to show them</h2>
 
-<p><strong>Example: Welfare subsidies in Mexico.</strong> In Mexican villages in the 1990’s,
-children in poor families were often not enrolled in school. One of the reasons
-was that the older children could go to work and thus help support the family.
-Santiago Levy , a minister in Mexican Ministry of Finance, set out to
-investigate whether welfare programs could be used to increase school enrollment
-and improve health conditions. He conducted an RCT on a set of villages,
-selecting some of them at random to receive a new welfare program called
-PROGRESA. The program gave money to poor families if their children went to
-school regularly and the family used preventive health care. More money was
-given if the children were in secondary school than in primary school, to
-compensate for the children’s lost wages, and more money was given for girls
-attending school than for boys. The remaining villages did not get this
-treatment, and formed the control group. Because of the randomization, there
-were no confounding factors and it was possible to establish that PROGRESA
-increased school enrollment. For boys, the enrollment increased from 73% in the
-control group to 77% in the PROGRESA group. For girls, the increase was even
-greater, from 67% in the control group to almost 75% in the PROGRESA group. Due
-to the success of this experiment, the Mexican government supported the program
-under the new name OPORTUNIDADES, as an investment in a healthy and well
-educated population.</p>
+<p>Jupyter Books uses <strong>notebook cell tags</strong> to determine which code cells to hide.
+If you add the tag <code class="highlighter-rouge">hidecode</code> to a cell, then Jupyter Book will hide the cell but
+display the outputs.</p>
 
-<p>In some situations it might not be possible to carry out a randomized controlled
-experiment, even when the aim is to investigate causality. For example, suppose
-you want to study the effects of alcohol consumption during pregnancy, and you
-randomly assign some pregnant women to your “alcohol” group. You should not
-expect cooperation from them if you present them with a drink. In such
-situations you will almost invariably be conducting an observational study, not
-an experiment. Be alert for confounding factors.</p>
+<p>By default, Jupyter Book will display a small button to the right of the 
+location that used to hold your code cell. If a user clicks the button, your
+code cell will be displayed. For example, see the cell below contains the <code class="highlighter-rouge">hidecode</code>
+tag:</p>
+
+<div class="language-python input_area hidecode highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+</code></pre></div></div>
+
+<p class="output output_png"><img src="../images/features/hiding_1_0.png" alt="png" /></p>
+
+<p>Try clicking the button to the right of the empty spot above!</p>
+
+<p>Note that this button only shows up for cells where you’ve hidden the code:</p>
+
+<div class="language-python input_area highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"This cell will show up!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="output output_stream highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This cell will show up!
+
+</code></pre></div></div>
+
+<p>You can disable this behavior by using the following configuration option:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">use_hide_code_button      </span><span class="pi">:</span> <span class="no">false</span> 
+</code></pre></div></div>
+
+<h2 id="hiding-the-inputs-and-outputs-of-a-cell">Hiding the inputs and outputs of a cell</h2>
+
+<p>You can also hide <strong>both</strong> the inputs and outputs of a cell, in which case it
+won’t show up in your book at all. These cells remain in the notebook file itself,
+so they’ll show up if readers click on a JupyterHub or Binder link from a page.</p>
+
+<p>To hide both the inputs and outputs of a cell, use the following configuration option:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hide_cell_text            </span><span class="pi">:</span> <span class="s2">"</span><span class="s">#</span><span class="nv"> </span><span class="s">YOUR</span><span class="nv"> </span><span class="s">SEARCH</span><span class="nv"> </span><span class="s">TEXT"</span>
+</code></pre></div></div>
+
+<p>When you build your book, Jupyter Book will search each code cell for the text specified
+by <code class="highlighter-rouge">hide_cell_text</code>. It will remove any cells that contain this text.</p>
 
               <nav class="c-page__nav">
   
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/jupyter-book/features/notebooks">
+      〈 <span class="u-margin-right-tiny"></span> Jupyter notebooks
+    </a>
+  
 
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/jupyter-book/features/interact">
+      Connecting content with JupyterHub... <span class="u-margin-right-tiny"></span> 〉
+    </a>
   
 </nav>
 
