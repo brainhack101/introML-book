@@ -27,9 +27,9 @@
   "headline":
     "Data Science",
   "datePublished":
-    "2019-01-09T20:59:20+00:00",
+    "2019-01-10T18:10:58+00:00",
   "dateModified":
-    "2019-01-09T20:59:20+00:00",
+    "2019-01-10T18:10:58+00:00",
   "description":
     "What is Data Science",
   "author": {
@@ -166,9 +166,25 @@ initFunction = function(myfunc) {
             const codeCells = document.querySelectorAll('.input_area pre')
             codeCells.forEach((codeCell, index) => {
                 const id = codeCellId(index)
-                codeCell.setAttribute('data-executable', '')
+                codeCell.setAttribute('data-executable', 'true')
+
+                // Figure out the language it uses and add this too
+                var parentDiv = codeCell.parentElement.parentElement;
+                var arrayLength = parentDiv.classList.length;
+                for (var ii = 0; ii < arrayLength; ii++) {
+                    var parts = parentDiv.classList[ii].split('language-');
+                    if (parts.length === 2) {
+                        // If found, assign dataLanguage and break the loop
+                        var dataLanguage = parts[1];
+                        break;
+                    }
+                }
+                codeCell.setAttribute('data-language', dataLanguage)
+
+                // If the code cell is hidden, remove it
+                codeCell.parentElement.classList.remove('hidden');
             });
-    
+
             // Init thebelab
             thebelab.bootstrap();
     
