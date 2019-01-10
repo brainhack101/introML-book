@@ -27,9 +27,9 @@
   "headline":
     "Features",
   "datePublished":
-    "2019-01-10T18:10:58+00:00",
+    "2019-01-10T23:29:53+00:00",
   "dateModified":
-    "2019-01-10T18:10:58+00:00",
+    "2019-01-10T23:29:53+00:00",
   "description":
     "This is an example book built with Jupyter Books.",
   "author": {
@@ -181,8 +181,11 @@ initFunction = function(myfunc) {
                 }
                 codeCell.setAttribute('data-language', dataLanguage)
 
-                // If the code cell is hidden, remove it
-                codeCell.parentElement.classList.remove('hidden');
+                // If the code cell is hidden, show it
+                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
+                if (inputCheckbox !== null) {
+                    setCodeCellVisibility(inputCheckbox, 'visible');
+                }
             });
 
             // Init thebelab
@@ -528,7 +531,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/>
+  <a href="https://predictablynoisy.com/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
   <h2 class="c-sidebar__title">Jupyter Book</h2>
   <ul class="c-sidebar__chapters">
     
