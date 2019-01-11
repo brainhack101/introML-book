@@ -8,10 +8,10 @@
   <title>Jupyter notebooks</title>
   <meta name="description" content="Content with notebooks">
 
-  <link rel="canonical" href="https://predictablynoisy.com/jupyter-book/features/notebooks.html">
-  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://predictablynoisy.com/jupyter-book/feed.xml">
+  <link rel="canonical" href="https://jupyter.org/jupyter-book/features/notebooks.html">
+  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://jupyter.org/jupyter-book/feed.xml">
 
-  <meta property="og:url"         content="https://predictablynoisy.com/jupyter-book/features/notebooks.html" />
+  <meta property="og:url"         content="https://jupyter.org/jupyter-book/features/notebooks.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Jupyter notebooks" />
 <meta property="og:description" content="Content with notebooks" />
@@ -23,13 +23,13 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://predictablynoisy.com/jupyter-book/features/notebooks.html",
+    "https://jupyter.org/jupyter-book/features/notebooks.html",
   "headline":
     "Jupyter notebooks",
   "datePublished":
-    "2019-01-10T23:29:53+00:00",
+    "2019-01-11T02:03:21+00:00",
   "dateModified":
-    "2019-01-10T23:29:53+00:00",
+    "2019-01-11T02:03:21+00:00",
   "description":
     "Content with notebooks",
   "author": {
@@ -41,14 +41,14 @@
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://predictablynoisy.com/jupyter-book",
+      "url": "https://jupyter.org/jupyter-book",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https://predictablynoisy.com/jupyter-book",
+    "url": "https://jupyter.org/jupyter-book",
     "height": 60,
     "width": 60
   }
@@ -136,7 +136,7 @@ initFunction = function(myfunc) {
     {
       requestKernel: true,
       binderOptions: {
-        repo: 'choldgraf/jupyter-book',
+        repo: 'jupyter/jupyter-book',
         ref: 'master',
       }
     }
@@ -440,7 +440,7 @@ function addParamToInternalLinks(hub) {
   var links = document.querySelectorAll("a").forEach(function(link) {
     var href = link.href;
     // If the link is an internal link...
-    if (href.search("https://predictablynoisy.com") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+    if (href.search("https://jupyter.org") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
       // Assume we're an internal link, add the hub param to it
       var params = getJsonFromUrl(href);
       if (params !== false) {
@@ -531,7 +531,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://predictablynoisy.com/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <a href="https://jupyter.org/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
   <h2 class="c-sidebar__title">Jupyter Book</h2>
   <ul class="c-sidebar__chapters">
     
@@ -1257,7 +1257,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
       
     
   </ul>
-  <p class="sidebar_footer">Powered by <a href="https://github.com/choldgraf/jupyter-book">Jupyter Book</a></p>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
 </nav>
 
       <!-- Shamelessly copied from minimal mistakes -->
@@ -1306,7 +1306,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
 
-<a href="https://mybinder.org/v2/gh/choldgraf/jupyter-book/master?filepath=content%2Ffeatures%2Fnotebooks.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/jupyter-book/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+<a href="https://mybinder.org/v2/gh/jupyter/jupyter-book/master?filepath=content%2Ffeatures%2Fnotebooks.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/jupyter-book/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
 
 
 </div>
@@ -1319,7 +1319,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 in a Jupyter Notebook in the <code class="highlighter-rouge">notebooks/</code> folder of the repository. This means that we can include
 code blocks and their outputs, and export them to Jekyll markdown.</p>
 
-<p><strong>You can find the original notebook for this page <a href="https://github.com/choldgraf/textbooks-with-jupyter/blob/master/notebooks/introduction/notebooks.ipynb">at this address</a></strong></p>
+<p><strong>You can find the original notebook for this page <a href="https://github.com/jupyter/textbooks-with-jupyter/blob/master/notebooks/introduction/notebooks.ipynb">at this address</a></strong></p>
 
 <h2 id="markdown--notebooks">Markdown + notebooks</h2>
 
@@ -1378,18 +1378,18 @@ For example, here’s some sample Matplotlib code:</p>
 <h2 id="removing-content-before-publishing">Removing content before publishing</h2>
 
 <p>You can also remove some content before publishing your book to the web. For example,
-in <a href="https://github.com/choldgraf/textbooks-with-jupyter/blob/master/notebooks/introduction/notebooks.ipynb">the original notebook</a> there
+in <a href="https://github.com/jupyter/jupyter-book/blob/master/notebooks/introduction/notebooks.ipynb">the original notebook</a> there
 used to be a cell below…</p>
 
 <p>You can also <strong>remove only the code</strong> so that images and other output still show up.</p>
 
 <p>Below we’ll <em>only</em> display an image. It was generated with Python code in a cell,
-which you can <a href="https://github.com/choldgraf/textbooks-with-jupyter/blob/master/notebooks/introduction/notebooks.ipynb">see in the original notebook</a></p>
+which you can <a href="https://github.com/jupyter/jupyter-book/blob/master/notebooks/introduction/notebooks.ipynb">see in the original notebook</a></p>
 
 <p class="output output_png"><img src="../images/features/notebooks_6_0.png" alt="png" /></p>
 
 <p>And here we’ll <em>only</em> display a Pandas DataFrame. Again, this was generated with Python code
-from <a href="https://github.com/choldgraf/textbooks-with-jupyter/blob/master/notebooks/introduction/notebooks.ipynb">this original notebook</a>.</p>
+from <a href="https://github.com/jupyter/textbooks-with-jupyter/blob/master/notebooks/introduction/notebooks.ipynb">this original notebook</a>.</p>
 
 <div class="output output_html">
 <div>

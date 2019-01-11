@@ -8,10 +8,10 @@
   <title>Getting started</title>
   <meta name="description" content="The Jupyter Books Guide">
 
-  <link rel="canonical" href="https://predictablynoisy.com/jupyter-book/guide/01_overview.html">
-  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://predictablynoisy.com/jupyter-book/feed.xml">
+  <link rel="canonical" href="https://jupyter.org/jupyter-book/guide/01_overview.html">
+  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://jupyter.org/jupyter-book/feed.xml">
 
-  <meta property="og:url"         content="https://predictablynoisy.com/jupyter-book/guide/01_overview.html" />
+  <meta property="og:url"         content="https://jupyter.org/jupyter-book/guide/01_overview.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Getting started" />
 <meta property="og:description" content="The Jupyter Books Guide" />
@@ -23,13 +23,13 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://predictablynoisy.com/jupyter-book/guide/01_overview.html",
+    "https://jupyter.org/jupyter-book/guide/01_overview.html",
   "headline":
     "Getting started",
   "datePublished":
-    "2019-01-10T23:29:53+00:00",
+    "2019-01-11T02:03:21+00:00",
   "dateModified":
-    "2019-01-10T23:29:53+00:00",
+    "2019-01-11T02:03:21+00:00",
   "description":
     "The Jupyter Books Guide",
   "author": {
@@ -41,14 +41,14 @@
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://predictablynoisy.com/jupyter-book",
+      "url": "https://jupyter.org/jupyter-book",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https://predictablynoisy.com/jupyter-book",
+    "url": "https://jupyter.org/jupyter-book",
     "height": 60,
     "width": 60
   }
@@ -136,7 +136,7 @@ initFunction = function(myfunc) {
     {
       requestKernel: true,
       binderOptions: {
-        repo: 'choldgraf/jupyter-book',
+        repo: 'jupyter/jupyter-book',
         ref: 'master',
       }
     }
@@ -440,7 +440,7 @@ function addParamToInternalLinks(hub) {
   var links = document.querySelectorAll("a").forEach(function(link) {
     var href = link.href;
     // If the link is an internal link...
-    if (href.search("https://predictablynoisy.com") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+    if (href.search("https://jupyter.org") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
       // Assume we're an internal link, add the hub param to it
       var params = getJsonFromUrl(href);
       if (params !== false) {
@@ -531,7 +531,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://predictablynoisy.com/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <a href="https://jupyter.org/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
   <h2 class="c-sidebar__title">Jupyter Book</h2>
   <ul class="c-sidebar__chapters">
     
@@ -1257,7 +1257,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
       
     
   </ul>
-  <p class="sidebar_footer">Powered by <a href="https://github.com/choldgraf/jupyter-book">Jupyter Book</a></p>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
 </nav>
 
       <!-- Shamelessly copied from minimal mistakes -->
@@ -1310,12 +1310,12 @@ help you through the process should you want to do this for your own book.</p>
 are essentially these two things:</p>
 
 <ol>
-  <li><a href="https://github.com/choldgraf/jupyter-book/tree/master/content"><strong>A collection of notebooks and markdown files</strong></a>. These are in <code class="highlighter-rouge">content/</code>. When you run <code class="highlighter-rouge">scripts/generate_book.py</code>,
+  <li><a href="https://github.com/jupyter/jupyter-book/tree/master/content"><strong>A collection of notebooks and markdown files</strong></a>. These are in <code class="highlighter-rouge">content/</code>. When you run <code class="highlighter-rouge">scripts/generate_book.py</code>,
 they’ll be converted to <code class="highlighter-rouge">.md</code> files (or just copied if they’re already <code class="highlighter-rouge">.md</code> files) and placed in <code class="highlighter-rouge">/_build</code>.</li>
-  <li><a href="https://github.com/choldgraf/jupyter-book/tree/master/_data/toc.yml"><strong>A Table of Contents file</strong></a> (<code class="highlighter-rouge">_data/toc.yml</code>). This is
+  <li><a href="https://github.com/jupyter/jupyter-book/tree/master/_data/toc.yml"><strong>A Table of Contents file</strong></a> (<code class="highlighter-rouge">_data/toc.yml</code>). This is
 the Table of Contents, which will be used to create the sidebar for your site. Links in this file are <strong>relative to the <code class="highlighter-rouge">/content/</code> folder.</strong>
-See <a href="https://github.com/choldgraf/jupyter-book/tree/master/_data/toc.yml">the TOC for this book</a> for a couple of examples.</li>
-  <li><a href="https://github.com/choldgraf/jupyter-book/tree/master/config.yml"><strong>A Jekyll configuration file</strong></a> that defines information about your book,
+See <a href="https://github.com/jupyter/jupyter-book/tree/master/_data/toc.yml">the TOC for this book</a> for a couple of examples.</li>
+  <li><a href="https://github.com/jupyter/jupyter-book/tree/master/config.yml"><strong>A Jekyll configuration file</strong></a> that defines information about your book,
 such as its title or the URL of a JupyterHub you want interact links to point to. This is also how you turn on / off many features
 of your Jupyter Book.</li>
 </ol>
@@ -1326,7 +1326,7 @@ of your Jupyter Book.</li>
 step in more detail in this guide):</p>
 
 <ul>
-  <li>Get yourself a copy of the jupyter-book repository. <a href="https://github.com/choldgraf/jupyter-book">Here’s the repo URL on GitHub</a>.</li>
+  <li>Get yourself a copy of the jupyter-book repository. <a href="https://github.com/jupyter/jupyter-book">Here’s the repo URL on GitHub</a>.</li>
   <li>Put your Jupyter Notebooks / markdown files in <code class="highlighter-rouge">/content/</code></li>
   <li>Edit the <code class="highlighter-rouge">_data/toc.yml</code> file for your Table of Contents. This defines the structure
 of your book. The location of URLs should be <strong>relative to the <code class="highlighter-rouge">/content/</code> folder.</strong></li>

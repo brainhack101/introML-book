@@ -8,10 +8,10 @@
   <title>Why Data Science?</title>
   <meta name="description" content="This is an example book built with Jupyter Books.">
 
-  <link rel="canonical" href="https://predictablynoisy.com/jupyter-book/content/01/2/why-data-science.html">
-  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://predictablynoisy.com/jupyter-book/feed.xml">
+  <link rel="canonical" href="https://jupyter.org/jupyter-book/content/01/2/why-data-science.html">
+  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://jupyter.org/jupyter-book/feed.xml">
 
-  <meta property="og:url"         content="https://predictablynoisy.com/jupyter-book/content/01/2/why-data-science.html" />
+  <meta property="og:url"         content="https://jupyter.org/jupyter-book/content/01/2/why-data-science.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Why Data Science?" />
 <meta property="og:description" content="This is an example book built with Jupyter Books." />
@@ -23,13 +23,13 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://predictablynoisy.com/jupyter-book/content/01/2/why-data-science.html",
+    "https://jupyter.org/jupyter-book/content/01/2/why-data-science.html",
   "headline":
     "Why Data Science?",
   "datePublished":
-    "2019-01-10T23:29:53+00:00",
+    "2019-01-11T02:03:21+00:00",
   "dateModified":
-    "2019-01-10T23:29:53+00:00",
+    "2019-01-11T02:03:21+00:00",
   "description":
     "This is an example book built with Jupyter Books.",
   "author": {
@@ -41,14 +41,14 @@
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://predictablynoisy.com/jupyter-book",
+      "url": "https://jupyter.org/jupyter-book",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https://predictablynoisy.com/jupyter-book",
+    "url": "https://jupyter.org/jupyter-book",
     "height": 60,
     "width": 60
   }
@@ -136,7 +136,7 @@ initFunction = function(myfunc) {
     {
       requestKernel: true,
       binderOptions: {
-        repo: 'choldgraf/jupyter-book',
+        repo: 'jupyter/jupyter-book',
         ref: 'master',
       }
     }
@@ -440,7 +440,7 @@ function addParamToInternalLinks(hub) {
   var links = document.querySelectorAll("a").forEach(function(link) {
     var href = link.href;
     // If the link is an internal link...
-    if (href.search("https://predictablynoisy.com") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+    if (href.search("https://jupyter.org") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
       // Assume we're an internal link, add the hub param to it
       var params = getJsonFromUrl(href);
       if (params !== false) {
@@ -531,7 +531,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://predictablynoisy.com/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <a href="https://jupyter.org/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
   <h2 class="c-sidebar__title">Jupyter Book</h2>
   <ul class="c-sidebar__chapters">
     
@@ -1257,7 +1257,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
       
     
   </ul>
-  <p class="sidebar_footer">Powered by <a href="https://github.com/choldgraf/jupyter-book">Jupyter Book</a></p>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
 </nav>
 
       <!-- Shamelessly copied from minimal mistakes -->

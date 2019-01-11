@@ -8,10 +8,10 @@
   <title>Jupyter Book</title>
   <meta name="description" content="This is an example book built with Jupyter Books.">
 
-  <link rel="canonical" href="https://predictablynoisy.com/jupyter-book/content/guide/06_faq.html">
-  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://predictablynoisy.com/jupyter-book/feed.xml">
+  <link rel="canonical" href="https://jupyter.org/jupyter-book/content/guide/06_faq.html">
+  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://jupyter.org/jupyter-book/feed.xml">
 
-  <meta property="og:url"         content="https://predictablynoisy.com/jupyter-book/content/guide/06_faq.html" />
+  <meta property="og:url"         content="https://jupyter.org/jupyter-book/content/guide/06_faq.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Jupyter Book" />
 <meta property="og:description" content="This is an example book built with Jupyter Books." />
@@ -23,13 +23,13 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://predictablynoisy.com/jupyter-book/content/guide/06_faq.html",
+    "https://jupyter.org/jupyter-book/content/guide/06_faq.html",
   "headline":
     "Jupyter Book",
   "datePublished":
-    "2019-01-10T23:29:53+00:00",
+    "2019-01-11T02:03:21+00:00",
   "dateModified":
-    "2019-01-10T23:29:53+00:00",
+    "2019-01-11T02:03:21+00:00",
   "description":
     "This is an example book built with Jupyter Books.",
   "author": {
@@ -41,14 +41,14 @@
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://predictablynoisy.com/jupyter-book",
+      "url": "https://jupyter.org/jupyter-book",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https://predictablynoisy.com/jupyter-book",
+    "url": "https://jupyter.org/jupyter-book",
     "height": 60,
     "width": 60
   }
@@ -136,7 +136,7 @@ initFunction = function(myfunc) {
     {
       requestKernel: true,
       binderOptions: {
-        repo: 'choldgraf/jupyter-book',
+        repo: 'jupyter/jupyter-book',
         ref: 'master',
       }
     }
@@ -440,7 +440,7 @@ function addParamToInternalLinks(hub) {
   var links = document.querySelectorAll("a").forEach(function(link) {
     var href = link.href;
     // If the link is an internal link...
-    if (href.search("https://predictablynoisy.com") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+    if (href.search("https://jupyter.org") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
       // Assume we're an internal link, add the hub param to it
       var params = getJsonFromUrl(href);
       if (params !== false) {
@@ -531,7 +531,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://predictablynoisy.com/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <a href="https://jupyter.org/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
   <h2 class="c-sidebar__title">Jupyter Book</h2>
   <ul class="c-sidebar__chapters">
     
@@ -1257,7 +1257,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
       
     
   </ul>
-  <p class="sidebar_footer">Powered by <a href="https://github.com/choldgraf/jupyter-book">Jupyter Book</a></p>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
 </nav>
 
       <!-- Shamelessly copied from minimal mistakes -->
@@ -1317,7 +1317,7 @@ steps:</p>
   <li>
     <p>Add this repository as a “remote” on your local git repo:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add template https://github.com/choldgraf/jupyter-book
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add template https://github.com/jupyter/jupyter-book
 </code></pre></div>    </div>
   </li>
   <li>
@@ -1334,7 +1334,7 @@ that you want to deploy to your textbook. <code class="highlighter-rouge">git</c
 First, go to the base repository for the textbook template and look up the “commits”
 page at the following URL:</p>
 
-    <p>https://github.com/choldgraf/jupyter-book/commits/master</p>
+    <p>https://github.com/jupyter/jupyter-book/commits/master</p>
 
     <p>Find the commit that you want to implement on <em>your</em> copy of the repository. Click the button with
 its hash (there’s one on the right of each row). Finally, copy the long commit hash that’s listed
@@ -1420,12 +1420,12 @@ Jekyll strips escape characters, so you should make sure to add <strong>two</str
 escape characters when needed. This is done automatically for many escape
 characters in <code class="highlighter-rouge">generate_book.py</code>, and if you notice something that should
 be included in this script, please open an issue
-<a href="https://github.com/choldgraf/jupyter-book/issues">at the textbook template issues page</a></p>
+<a href="https://github.com/jupyter/jupyter-book/issues">at the textbook template issues page</a></p>
 
 <h2 id="what-if-i-have-an-issue-or-question">What if I have an issue or question?</h2>
 
 <p>If you’ve got questions, concerns, or suggestions, please open an issue at
-<a href="https://github.com/choldgraf/jupyter-book/issues">at the jupyter book issues page</a></p>
+<a href="https://github.com/jupyter/jupyter-book/issues">at the jupyter book issues page</a></p>
 
               <nav class="c-page__nav">
   
