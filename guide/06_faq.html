@@ -27,9 +27,9 @@
   "headline":
     "FAQ",
   "datePublished":
-    "2019-01-18T21:43:50+00:00",
+    "2019-01-18T21:51:38+00:00",
   "dateModified":
-    "2019-01-18T21:43:50+00:00",
+    "2019-01-18T21:51:38+00:00",
   "description":
     "The following are some common issues and questions that have arisen whenbuilding your textbook with Jekyll.",
   "author": {
@@ -1399,12 +1399,12 @@ initFunction(initQuery);
     <nav class="onthispage">
       <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
       <ul class="toc__menu">
-  <li><a href="#how-can-i-update-my-fork-of-the-repository">How can I update my fork of the repository?</a></li>
+  <li><a href="#how-can-i-update-my-book">How can I update my book?</a></li>
   <li><a href="#which-files-do-i-need-to-update">Which files do I need to update?</a>
     <ul>
-      <li><a href="#files-that-you-shouldnt-need-to-change-to-upgrade">Files that you shouldn’t need to change to upgrade</a></li>
-      <li><a href="#files-that-you-might-want-to-check">Files that you might want to check</a></li>
       <li><a href="#files-that-you-should-force-update">Files that you should force-update</a></li>
+      <li><a href="#files-that-you-might-want-to-check">Files that you might want to check</a></li>
+      <li><a href="#files-that-you-shouldnt-need-to-change-to-upgrade">Files that you shouldn’t need to change to upgrade</a></li>
     </ul>
   </li>
   <li><a href="#why-isnt-my-math-showing-up-properly">Why isn’t my math showing up properly?</a></li>
@@ -1436,54 +1436,40 @@ initFunction(initQuery);
               <p>The following are some common issues and questions that have arisen when
 building your textbook with Jekyll.</p>
 
-<h2 id="how-can-i-update-my-fork-of-the-repository">How can I update my fork of the repository?</h2>
+<h2 id="how-can-i-update-my-book">How can I update my book?</h2>
 
-<p>Sometimes this repository will get updates that you want to incorporate into
-a pre-existing course. If you want to pull in new changes, take the following
-steps:</p>
+<p>Sometimes Jupyter Book will get updates that you want to incorporate into
+a book you’ve already built. The easiest way to do this is to checkout the latest
+versions of the relevant files from the <a href="https://github.com/jupyter/jupyter-book">Jupyter Book repository</a>,
+make sure that you haven’t overwritten anything important in your site, and then commit them.</p>
+
+<p>To pull in new changes, take the following steps:</p>
 
 <ol>
   <li>
-    <p>Add this repository as a “remote” on your local git repo:</p>
+    <p>Add <a href="https://github.com/jupyter/jupyter-book">Jupyter Book repository</a> as a “remote” on your local git repo:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add template https://github.com/jupyter/jupyter-book
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add template https://github.com/jupyter/jupyter-book
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Pull in the latest changes from the remote repository into your local <code class="highlighter-rouge">gh-pages</code> branch:</p>
+    <p>Check out the latest versions of relevant files from the template. Here’s the command to do this for one file.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull template master
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout template/master path/to/myfile.css
 </code></pre></div>    </div>
-  </li>
-  <li>Resolve any merge conflicts that may arise. Make sure that you don’t over-write
-any important files (e.g. anything in your <code class="highlighter-rouge">content/</code> directory or in <code class="highlighter-rouge">_config.yml</code>)</li>
-  <li>
-    <p><strong>If there are lots of merge conflicts</strong> you can try to “cherry pick” only the commit
-that you want to deploy to your textbook. <code class="highlighter-rouge">git</code> has a special command for this.
-First, go to the base repository for the textbook template and look up the “commits”
-page at the following URL:</p>
 
-    <p>https://github.com/jupyter/jupyter-book/commits/master</p>
-
-    <p>Find the commit that you want to implement on <em>your</em> copy of the repository. Click the button with
-its hash (there’s one on the right of each row). Finally, copy the long commit hash that’s listed
-on the resulting page. This is a unique hash for this commit.</p>
-
-    <p>Now, use <code class="highlighter-rouge">git cherry-pick</code> to make these changes to your repo:</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git cherry-pick &lt;COMMIT-HASH&gt;
-</code></pre></div>    </div>
+    <p>See the section below for which files you should focus on.</p>
   </li>
   <li>
-    <p><strong>If you’d like to update a specific file with the latest version from <code class="highlighter-rouge">jupyter-book</code></strong>:</p>
+    <p>Check the diff between your newly-checked-out file and its previous version, to make sure that
+you haven’t overwritten any changes that you’ve made.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout template/master &lt;path-to-file&gt;
-</code></pre></div>    </div>
+    <p>This is especially important for configuration files like <code class="highlighter-rouge">_config.yml</code>.</p>
   </li>
   <li>
-    <p>Push changes to your github repository once you’re happy with the content:</p>
+    <p>Demo your book, then push changes to your github repository once you’re happy:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -1495,15 +1481,22 @@ with the latest version from <code class="highlighter-rouge">jupyter-book</code>
 
 <p>These sections assume that the <code class="highlighter-rouge">jupyter-book</code> repository is added as a “remote” repository called <code class="highlighter-rouge">template</code> to your local copy.</p>
 
-<h3 id="files-that-you-shouldnt-need-to-change-to-upgrade">Files that you shouldn’t need to change to upgrade</h3>
+<h3 id="files-that-you-should-force-update">Files that you should force-update</h3>
 
-<p>These are files you shouldn’t need to update unless there is a major change to <code class="highlighter-rouge">jupyter-book</code>.</p>
+<p>These are files that you can probably just upgrade directly, you probably haven’t changed their
+contents for your site.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">contents/</code> - these are files unique to your book, so you shouldn’t need to change them.</li>
-  <li><code class="highlighter-rouge">_data/toc.yml</code> - the Table of Contents structure will not change unless there is a major version change in <code class="highlighter-rouge">jupyter-book</code>.</li>
-  <li><code class="highlighter-rouge">README.md</code> - is unique for your site.</li>
-  <li>Any other folders/files that are unique to your book.</li>
+  <li><code class="highlighter-rouge">scripts/</code> - these are scripts for building and cleaning the book. You should just pull in the latest contents
+of this folder (unless you know what you’re doing and have modified these scripts yourself).</li>
+  <li><code class="highlighter-rouge">Makefile</code> - the Makefile is tuned to whatever is inside <code class="highlighter-rouge">scripts/</code>. You should update it to the latest version
+as well.</li>
+  <li><code class="highlighter-rouge">assets/</code> - these are assets used by jupyter-book. You should update to grab the newest ones, unless you have
+modified or added your own assets.</li>
+  <li><code class="highlighter-rouge">_sass/</code> - the SASS defines the styling of the site. You should also just grab the latest version unless you know
+what you’re doing.</li>
+  <li><code class="highlighter-rouge">_includes/</code> and <code class="highlighter-rouge">_layouts/</code>. These are template files, and should be auto-updated.</li>
+  <li><code class="highlighter-rouge">Gemfile</code> which lists the Ruby dependencies for the site.</li>
 </ul>
 
 <h3 id="files-that-you-might-want-to-check">Files that you might want to check</h3>
@@ -1518,24 +1511,27 @@ with the latest version from <code class="highlighter-rouge">jupyter-book</code>
 check that the newer version of <code class="highlighter-rouge">jupyter-book</code> hasn’t added or removed something.</li>
 </ul>
 
-<h3 id="files-that-you-should-force-update">Files that you should force-update</h3>
+<p>Here is the code needed to add jupyter book as a remote</p>
 
-<p>You can grab the latest version of these files with:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout template/master &lt;path-to-file&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add template https://github.com/jupyter/jupyter-book
 </code></pre></div></div>
 
+<p>and to check out the latest version of the above files:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch template master
+git checkout template/master scripts/ Makefile assets/ _sass/ _includes/ _layouts/ Gemfile _config.yml
+</code></pre></div></div>
+
+<p>Don’t forget to check the diff to make sure that you’re not overwriting your own changes!</p>
+
+<h3 id="files-that-you-shouldnt-need-to-change-to-upgrade">Files that you shouldn’t need to change to upgrade</h3>
+
+<p>These are files you shouldn’t need to update unless there is a major change to <code class="highlighter-rouge">jupyter-book</code>.</p>
+
 <ul>
-  <li><code class="highlighter-rouge">scripts/</code> - these are scripts for building and cleaning the book. You should just pull in the latest contents
-of this folder (unless you know what you’re doing and have modified these scripts yourself).</li>
-  <li><code class="highlighter-rouge">Makefile</code> - the Makefile is tuned to whatever is inside <code class="highlighter-rouge">scripts/</code>. You should update it to the latest version
-as well.</li>
-  <li><code class="highlighter-rouge">assets</code> - these are assets used by jupyter-book. You should update to grab the newest ones, unless you have
-modified or added your own assets.</li>
-  <li><code class="highlighter-rouge">_sass</code> - the SASS defines the styling of the site. You should also just grab the latest version unless you know
-what you’re doing.</li>
-  <li><code class="highlighter-rouge">_includes</code> and <code class="highlighter-rouge">_layouts</code>. These are template files, and should be auto-updated.</li>
-  <li><code class="highlighter-rouge">Gemfile</code> which lists the Ruby dependencies for the site.</li>
+  <li><code class="highlighter-rouge">contents/</code> - these are files unique to your book, so you shouldn’t need to change them.</li>
+  <li><code class="highlighter-rouge">_data/toc.yml</code> - the Table of Contents structure will not change unless there is a major version change in <code class="highlighter-rouge">jupyter-book</code>.</li>
+  <li>Any other folders/files that are unique to your book.</li>
 </ul>
 
 <h2 id="why-isnt-my-math-showing-up-properly">Why isn’t my math showing up properly?</h2>
