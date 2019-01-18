@@ -27,9 +27,9 @@
   "headline":
     "Setup and Install",
   "datePublished":
-    "2019-01-13T23:42:43+00:00",
+    "2019-01-18T20:42:36+00:00",
   "dateModified":
-    "2019-01-13T23:42:43+00:00",
+    "2019-01-18T20:42:36+00:00",
   "description":
     "This page should get you set up with the software and code needed to buildyour textbook! Follow the steps below…",
   "author": {
@@ -287,7 +287,7 @@ const addCopyButtonToCodeCells = () => {
 
 initFunction(addCopyButtonToCodeCells);
 </script>
-  
+
   <!-- Hide cell code -->
   
 <script>
@@ -521,6 +521,94 @@ runWhenDOMLoaded(updateInteractLink)
 document.addEventListener('turbolinks:load', updateInteractLink)
 </script>
 
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="/jupyter-book/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
 </head>
 
   <body>
@@ -543,7 +631,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/intro"
+          href="/jupyter-book/intro.html"
         >
           
           Home
@@ -556,13 +644,17 @@ document.addEventListener('turbolinks:load', updateInteractLink)
     
       
       
+        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/jupyter-book/search.html">Search</a></li>
+        
+      
+      
 
       
       
 
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/guide/01_overview"
+          href="/jupyter-book/guide/01_overview.html"
         >
           
           Getting started
@@ -584,7 +676,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry c-sidebar__entry--active"
-                  href="/jupyter-book/guide/02_setup"
+                  href="/jupyter-book/guide/02_setup.html"
                 >
                   
                   Setup and Install
@@ -601,7 +693,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/03_prepare"
+                  href="/jupyter-book/guide/03_prepare.html"
                 >
                   
                   Prepare your book
@@ -618,7 +710,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/04_build"
+                  href="/jupyter-book/guide/04_build.html"
                 >
                   
                   Build your book
@@ -635,7 +727,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/05_publish"
+                  href="/jupyter-book/guide/05_publish.html"
                 >
                   
                   Publish your book
@@ -652,7 +744,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/06_faq"
+                  href="/jupyter-book/guide/06_faq.html"
                 >
                   
                   FAQ
@@ -669,7 +761,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/07_advanced"
+                  href="/jupyter-book/guide/07_advanced.html"
                 >
                   
                   How-to and advanced topics
@@ -695,7 +787,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/features/features"
+          href="/jupyter-book/features/features.html"
         >
           
           Features and customization
@@ -717,7 +809,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/markdown"
+                  href="/jupyter-book/features/markdown.html"
                 >
                   
                   Markdown files
@@ -734,7 +826,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/notebooks"
+                  href="/jupyter-book/features/notebooks.html"
                 >
                   
                   Jupyter notebooks
@@ -751,7 +843,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/hiding"
+                  href="/jupyter-book/features/hiding.html"
                 >
                   
                   Hiding code blocks or entire cells
@@ -768,7 +860,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/interact"
+                  href="/jupyter-book/features/interact.html"
                 >
                   
                   Connecting content with JupyterHub and Binder
@@ -785,7 +877,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/citations"
+                  href="/jupyter-book/features/citations.html"
                 >
                   
                   Citations and bibliographies
@@ -797,7 +889,43 @@ document.addEventListener('turbolinks:load', updateInteractLink)
               </li>
               
             
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/features/search.html"
+                >
+                  
+                  Searching your book
+                </a>
+
+                
+                
+
+              </li>
+              
+            
           </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/jupyter/jupyter-book.html"
+        >
+          
+          GitHub repository
+        </a>
+
         
       </li>
 
@@ -819,7 +947,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/01/what-is-data-science"
+          href="/jupyter-book/01/what-is-data-science.html"
         >
           
             1.
@@ -843,7 +971,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/01/1/intro"
+                  href="/jupyter-book/01/1/intro.html"
                 >
                   
                     1.1
@@ -862,7 +990,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/01/2/why-data-science"
+                  href="/jupyter-book/01/2/why-data-science.html"
                 >
                   
                     1.2
@@ -881,7 +1009,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/01/3/Plotting_the_Classics"
+                  href="/jupyter-book/01/3/Plotting_the_Classics.html"
                 >
                   
                     1.3
@@ -893,10 +1021,10 @@ document.addEventListener('turbolinks:load', updateInteractLink)
                 
                   
                   
-    
+
                   <li class="c-sidebar__subsection">
                     <a class="c-sidebar__entry "
-                      href="/jupyter-book/01/3/subsection/subsections"
+                      href="/jupyter-book/01/3/subsection/subsections.html"
                     >
                       
                         1.3.1
@@ -907,10 +1035,10 @@ document.addEventListener('turbolinks:load', updateInteractLink)
                 
                   
                   
-    
+
                   <li class="c-sidebar__subsection">
                     <a class="c-sidebar__entry "
-                      href="/jupyter-book/01/3/subsection/subsectiontwo"
+                      href="/jupyter-book/01/3/subsection/subsectiontwo.html"
                     >
                       
                         1.3.2
@@ -937,7 +1065,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/02/causality-and-experiments"
+          href="/jupyter-book/02/causality-and-experiments.html"
         >
           
             2.
@@ -961,7 +1089,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/02/1/observation-and-visualization-john-snow-and-the-broad-street-pump"
+                  href="/jupyter-book/02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html"
                 >
                   
                     2.1
@@ -980,7 +1108,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/02/2/snow-s-grand-experiment"
+                  href="/jupyter-book/02/2/snow-s-grand-experiment.html"
                 >
                   
                     2.2
@@ -999,7 +1127,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/02/3/establishing-causality"
+                  href="/jupyter-book/02/3/establishing-causality.html"
                 >
                   
                     2.3
@@ -1018,7 +1146,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/02/4/randomization"
+                  href="/jupyter-book/02/4/randomization.html"
                 >
                   
                     2.4
@@ -1037,7 +1165,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/02/5/endnote"
+                  href="/jupyter-book/02/5/endnote.html"
                 >
                   
                     2.5
@@ -1065,7 +1193,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/03/programming-in-python"
+          href="/jupyter-book/03/programming-in-python.html"
         >
           
             3.
@@ -1089,7 +1217,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/03/1/Expressions"
+                  href="/jupyter-book/03/1/Expressions.html"
                 >
                   
                     3.1
@@ -1108,7 +1236,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/03/2/Names"
+                  href="/jupyter-book/03/2/Names.html"
                 >
                   
                     3.2
@@ -1127,7 +1255,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/03/3/Calls"
+                  href="/jupyter-book/03/3/Calls.html"
                 >
                   
                     3.3
@@ -1146,7 +1274,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/03/4/Introduction_to_Tables"
+                  href="/jupyter-book/03/4/Introduction_to_Tables.html"
                 >
                   
                     3.4
@@ -1174,7 +1302,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/04/Types"
+          href="/jupyter-book/04/Types.html"
         >
           
             4.
@@ -1198,7 +1326,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/04/1/Numbers"
+                  href="/jupyter-book/04/1/Numbers.html"
                 >
                   
                     4.1
@@ -1217,7 +1345,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/04/2/Strings"
+                  href="/jupyter-book/04/2/Strings.html"
                 >
                   
                     4.2
@@ -1236,7 +1364,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/04/3/Comparison"
+                  href="/jupyter-book/04/3/Comparison.html"
                 >
                   
                     4.3
@@ -1260,6 +1388,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
   <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
 </nav>
 
+      
       <!-- Shamelessly copied from minimal mistakes -->
 
 
@@ -1278,7 +1407,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
   </aside>
 
 
-
+      
       <main class="c-textbook__page" tabindex="-1">
           <div class="o-wrapper">
             <div class="c-sidebar-toggle">
