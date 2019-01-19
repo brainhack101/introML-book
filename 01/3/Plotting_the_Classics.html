@@ -27,9 +27,9 @@
   "headline":
     "Plotting the Classics",
   "datePublished":
-    "2019-01-19T00:02:33+00:00",
+    "2019-01-19T00:40:32+00:00",
   "dateModified":
-    "2019-01-19T00:02:33+00:00",
+    "2019-01-19T00:40:32+00:00",
   "description":
     "In this example, we will explore statistics for two classic novels: The Adventures of Huckleberry Finn by Mark Twain, and Little Women by Louisa May Alcott. ...",
   "author": {
@@ -120,6 +120,16 @@ initFunction = function(myfunc) {
   <script>
     const site_basename = '/jupyter-book';
   </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="/jupyter-book/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script>
+
+initFunction(function () {
+    anchors.add("main h1, main h2, main h3, main h4")
+});
+
+</script>
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
