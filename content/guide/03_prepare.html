@@ -27,9 +27,9 @@
   "headline":
     "Add content to your book",
   "datePublished":
-    "2019-01-22T22:21:33+00:00",
+    "2019-01-23T01:29:01+00:00",
   "dateModified":
-    "2019-01-22T22:21:33+00:00",
+    "2019-01-23T01:29:01+00:00",
   "description":
     "This is an example book built with Jupyter Books.",
   "author": {
@@ -1483,6 +1483,16 @@ the file that’s located in <code class="highlighter-rouge">mysite/content/mych
 </code></pre></div></div>
 
 <p>See <a href="https://github.com/jupyter/jupyter-book/tree/master/_data/toc.yml">the template <code class="highlighter-rouge">toc.yml</code></a> for examples.</p>
+
+<p>Jupyter Book has a helper script to quickly generate part of your <code class="highlighter-rouge">toc.yml</code> file by alphabetically
+parsing the directories of your content folder. You can run this script with the following command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python scripts/generate_toc_from_folders.py content/ --out_path _data/toc_tmp.yml
+</code></pre></div></div>
+
+<p>This won’t create a fully-functioning TOC file,
+but it should help you get started with the bulk of the file. You should inspect the resulting
+contents, and when you are happy with them, rename it to <code class="highlighter-rouge">_data/toc.yml</code>.</p>
 
 <h2 id="configure-your-book">Configure your book</h2>
 
