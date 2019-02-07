@@ -16,7 +16,7 @@ install:
 
 book:
 	python scripts/license.py --path ./content
-	python scripts/generate_book.py --execute
+	python scripts/generate_book.py
 
 runall:
 	python scripts/execute_all_notebooks.py
