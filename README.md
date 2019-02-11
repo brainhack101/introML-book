@@ -1,5 +1,7 @@
 # Machine Learning with Nilearn
 
+<img src="https://nilearn.github.io/_static/nilearn-logo.png" alt="nilearn" width="200"/>
+
 This is an introductory tutorial for using [Nilearn](http://nilearn.github.io) to explore machine learning with neuroimaging data.
 It was developed for use at the [Montreal AI and Neuroscience (MAIN)](http://www.crm.umontreal.ca/2018/MAIN2018/index_e.php) conference in December 2018.
 
