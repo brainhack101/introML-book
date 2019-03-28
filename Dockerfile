@@ -9,6 +9,3 @@ COPY . /home/jovyan
 
 # Installing Kamalaker's MAIN fetcher
 RUN pip install -r requirements.txt
-
-# Downloading the data
-RUN ["/bin/bash", "/home/jovyan/data_fetch.sh"]
