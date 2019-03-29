@@ -1,4 +1,4 @@
-[![Binder](https://conp8.calculquebec.cloud/badge_logo.svg)](https://conp8.calculquebec.cloud/v2/gh/ltetrel/introML-book/master)
+[![Binder](https://conp8.calculquebec.cloud/badge_logo.svg)](https://conp8.calculquebec.cloud/v2/gh/ltetrel/introML-book/master/?filepath=content/01)
 
 # Machine Learning with Nilearn
 
