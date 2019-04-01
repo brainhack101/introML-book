@@ -9,3 +9,4 @@ scipy
 sklearn
 git+https://github.com/emdupre/nilearn.git@ec407a31d84d864b0ff3ac96282922a65e5b6a11
 repo2data
+seaborn
