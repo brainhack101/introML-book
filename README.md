@@ -1,5 +1,7 @@
 [![Binder](https://conp8.calculquebec.cloud/badge_logo.svg)](https://conp8.calculquebec.cloud/v2/gh/ltetrel/introML-book/master/?filepath=content/01)
 
+conp7 : [![Binder](https://conp7.calculquebec.cloud/badge_logo.svg)](https://conp7.calculquebec.cloud/v2/gh/ltetrel/introML-book/master/?filepath=content/01)
+
 # Machine Learning with Nilearn
 
 <img src="https://nilearn.github.io/_static/nilearn-logo.png" alt="nilearn" width="200"/>
