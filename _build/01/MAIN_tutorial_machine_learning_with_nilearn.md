@@ -46,7 +46,7 @@ The dataset consists of 50 children (ages 3-13) and 33 young adults (ages 18-39)
 from glob import glob
 import os
 
-wdir = '/home/jovyan/nilearn_data/main/main/'
+wdir = '/home/jovyan/nilearn_data/development_fmri/development_fmri/'
 data = sorted(glob(os.path.join(wdir,'*.gz')))
 confounds = sorted(glob(os.path.join(wdir,'*regressors.tsv')))
 ```

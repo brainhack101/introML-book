@@ -36,7 +36,7 @@ For our dataset, let's load participant level information:
 import os
 import pandas as pd
 
-data_dir = '/home/jovyan/nilearn_data/main/main/'
+data_dir = '/home/jovyan/nilearn_data/development_fmri/development_fmri/'
 participants = 'participants.tsv'
 phenotypic_data = pd.read_csv(os.path.join(data_dir, participants), sep='\t')
 phenotypic_data.head()
