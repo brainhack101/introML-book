@@ -7,6 +7,6 @@ folium
 matplotlib
 scipy
 sklearn
-git+https://github.com/emdupre/nilearn.git@ec407a31d84d864b0ff3ac96282922a65e5b6a11
+git+https://github.com/nilearn/nilearn/commit/e84e1aff00345a84cd98338d1ff0305d81a2ed6f
 repo2data
 seaborn
